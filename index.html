@@ -197,18 +197,35 @@
         
         <h3 class="title is-4" style="margin-top: 30px;">Path Planning Comparison</h3>
         <div class="columns is-multiline">
-          <div class="column is-full">
-            <div class="box" style="background-color: #f5f5f5;">
-              <p><strong>Path Planning Comparison (Figure 2)</strong></p>
-              <p>The detailed comparison shows three approaches across two environments:</p>
-              <ul>
-                <li><strong>Row 1 (Naive):</strong> Basic path planning without uncertainty consideration</li>
-                <li><strong>Row 2 (Standard CP):</strong> Fixed safety margins (shown in red/black/blue)</li>
-                <li><strong>Row 3 (Learnable CP):</strong> Adaptive margins that widen near obstacles and tighten in open areas</li>
-              </ul>
-              <p>Environments tested: Office02 (left) and Shopping Mall (right)</p>
-              <p><em>Note: Full resolution figures available in the paper</em></p>
-            </div>
+          <div class="column is-half">
+            <p style="text-align: center; font-weight: bold;">Office02 Environment</p>
+          </div>
+          <div class="column is-half">
+            <p style="text-align: center; font-weight: bold;">Shopping Mall Environment</p>
+          </div>
+          <div class="column is-half">
+            <img src="./static/images/figures/naive_office02.png" style="width: 100%;" alt="Naive Office02">
+            <p style="text-align: center; font-size: 0.9em;">Naive Path Planning</p>
+          </div>
+          <div class="column is-half">
+            <img src="./static/images/figures/naive_shopping_mall.png" style="width: 100%;" alt="Naive Shopping Mall">
+            <p style="text-align: center; font-size: 0.9em;">Naive Path Planning</p>
+          </div>
+          <div class="column is-half">
+            <img src="./static/images/figures/standard_cp_office02.png" style="width: 100%;" alt="Standard CP Office02">
+            <p style="text-align: center; font-size: 0.9em;">Standard CP (Fixed Margins)</p>
+          </div>
+          <div class="column is-half">
+            <img src="./static/images/figures/standard_cp_shopping_mall.png" style="width: 100%;" alt="Standard CP Shopping Mall">
+            <p style="text-align: center; font-size: 0.9em;">Standard CP (Fixed Margins)</p>
+          </div>
+          <div class="column is-half">
+            <img src="./static/images/figures/learnable_cp_office02.png" style="width: 100%;" alt="Learnable CP Office02">
+            <p style="text-align: center; font-size: 0.9em;">Learnable CP (Adaptive Margins)</p>
+          </div>
+          <div class="column is-half">
+            <img src="./static/images/figures/learnable_cp_shopping_mall.png" style="width: 100%;" alt="Learnable CP Shopping Mall">
+            <p style="text-align: center; font-size: 0.9em;">Learnable CP (Adaptive Margins)</p>
           </div>
         </div>
         <p><strong>Figure 2:</strong> Path planning benchmarks on MRPB. Rows: Naive, Standard CP, Learnable CP. Columns: Office02, Shopping Mall environments. Learnable CP adapts margins based on context.</p>
@@ -282,18 +299,8 @@
       <div class="column is-full-width">
         <h3 class="title is-4">Object Detection with Uncertainty Bounds</h3>
         <div class="content has-text-centered">
-          <div class="box" style="background-color: #f5f5f5; padding: 20px;">
-            <p><strong>Figure 3: Object Detection with Uncertainty Bounds</strong></p>
-            <p>Comparison of conformal prediction intervals across different methods:</p>
-            <ul style="text-align: left; display: inline-block;">
-              <li><strong>Standard CP:</strong> Fixed, uniform margins around objects</li>
-              <li><strong>Ensemble:</strong> Often over-inflated, doubling box area</li>
-              <li><strong>CQR:</strong> Irregular, geometrically implausible shapes</li>
-              <li><strong>Learnable CP (Ours):</strong> Tight, adaptive intervals that scale with object size and difficulty</li>
-            </ul>
-            <p>Tested on three datasets: COCO, BDD100K, and Cityscapes</p>
-            <p style="color: #666;"><em>Red boxes: ground truth | Green boxes: predictions with uncertainty bounds</em></p>
-          </div>
+          <img src="./static/images/figures/Reg_bounding_box.png" style="width: 100%; max-width: 1000px;" alt="Bounding Box Comparisons">
+          <p style="margin-top: 10px;"><strong>Figure 3:</strong> Conformal prediction intervals across methods and datasets. Rows: COCO, BDD100K, Cityscapes. Columns: Standard, Ensemble, CQR, and Learnable CP. Red boxes show ground truth, green boxes show predictions with uncertainty bounds. Our Learnable CP provides tighter, more adaptive intervals.</p>
         </div>
       </div>
     </div>
