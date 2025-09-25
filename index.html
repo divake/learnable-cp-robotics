@@ -104,12 +104,12 @@
               </span>
               <!-- Code Links for the three repositories -->
               <span class="link-block">
-                <a href="https://github.com/divake/learnable_scoring_funtion_01"
+                <a href="https://github.com/divake/path_planning"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Classification Code</span>
+                  <span>Path Planning Code</span>
                   </a>
               </span>
               <span class="link-block">
@@ -122,12 +122,12 @@
                   </a>
               </span>
               <span class="link-block">
-                <a href="https://github.com/divake/path_planning"
+                <a href="https://github.com/divake/learnable_scoring_funtion_01"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Path Planning Code</span>
+                  <span>Classification Code</span>
                   </a>
             </div>
 
@@ -178,22 +178,7 @@
     </div>
     <!--/ Abstract. -->
 
-    <!-- Demo video. -->
-    <div class="columns is-centered has-text-centered" id="demo-video">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Demo Video</h2>
-        <div class="publication-video">
-          <video controls playsinline style="width: 100%;">
-            <source src="./static/videos/demo.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <p class="has-text-centered" style="margin-top: 10px;">
-            Real-time demonstration of Learnable Conformal Prediction on Intel NUC edge hardware
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Demo video. -->
+    <!-- Removed demo video from here - moved to end -->
   </div>
 </section>
 
@@ -201,12 +186,122 @@
 <section class="section">
   <div class="container is-max-desktop">
 
-    <!-- Removed Visual Effects and Matting sections -->
-
-    <!-- Key Results -->
+    <!-- Path Planning Results -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Key Results</h2>
+        <h2 class="title is-3">Path Planning Visualization</h2>
+        <div class="content has-text-centered">
+          <img src="./static/images/figures/Vision_2.jpg" style="width: 100%; max-width: 800px;" alt="Path Planning Visualization">
+          <p><strong>Figure 1:</strong> Real-time conformal prediction for safe and efficient robotics. Left: Framework on Intel NUC mounted on Agilex MiniScout. Center: Conformal path planning with RRT. Right: Improved object detection and classification.</p>
+        </div>
+        
+        <h3 class="title is-4" style="margin-top: 30px;">Path Planning Comparison</h3>
+        <div class="columns is-multiline">
+          <div class="column is-full">
+            <div class="box" style="background-color: #f5f5f5;">
+              <p><strong>Path Planning Comparison (Figure 2)</strong></p>
+              <p>The detailed comparison shows three approaches across two environments:</p>
+              <ul>
+                <li><strong>Row 1 (Naive):</strong> Basic path planning without uncertainty consideration</li>
+                <li><strong>Row 2 (Standard CP):</strong> Fixed safety margins (shown in red/black/blue)</li>
+                <li><strong>Row 3 (Learnable CP):</strong> Adaptive margins that widen near obstacles and tighten in open areas</li>
+              </ul>
+              <p>Environments tested: Office02 (left) and Shopping Mall (right)</p>
+              <p><em>Note: Full resolution figures available in the paper</em></p>
+            </div>
+          </div>
+        </div>
+        <p><strong>Figure 2:</strong> Path planning benchmarks on MRPB. Rows: Naive, Standard CP, Learnable CP. Columns: Office02, Shopping Mall environments. Learnable CP adapts margins based on context.</p>
+      </div>
+    </div>
+
+    <!-- Path Planning Table -->
+    <div class="columns is-centered" style="margin-top: 40px;">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Quantitative Results</h2>
+        <h3 class="title is-4">Table I: Path Planning Results on MRPB</h3>
+        <div style="overflow-x: auto;">
+          <table class="table is-bordered is-striped" style="font-size: 0.9em;">
+            <thead>
+              <tr>
+                <th>Environment</th>
+                <th>Method</th>
+                <th>Success Rate ↑</th>
+                <th>Path Length (m) ↓</th>
+                <th>Waypoints ↓</th>
+                <th>d₀ (m) ↑</th>
+                <th>d_avg (m) ↑</th>
+                <th>p₀ (%) ↓</th>
+                <th>T (s) ↓</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td rowspan="3"><strong>office01add</strong></td><td>Naive</td><td>81.62%</td><td><strong>21.92±2.15</strong></td><td><strong>35±3</strong></td><td>0.212±0.048</td><td>0.637±0.085</td><td>4.92±1.23</td><td><strong>18.54±2.35</strong></td></tr>
+              <tr><td>Standard CP</td><td>89.24%</td><td>24.79±2.38</td><td>39±4</td><td><strong>0.342±0.051</strong></td><td><strong>0.817±0.092</strong></td><td><strong>1.48±0.52</strong></td><td>20.98±2.65</td></tr>
+              <tr><td><strong>Learnable CP</strong></td><td><strong>92.78%</strong></td><td>22.82±2.21</td><td>36±4</td><td>0.285±0.045</td><td>0.711±0.088</td><td>2.56±0.78</td><td>19.31±2.42</td></tr>
+              <tr><td rowspan="3"><strong>shopping_mall</strong></td><td>Naive</td><td>75.64%</td><td><strong>62.45±5.38</strong></td><td><strong>55±5</strong></td><td>0.185±0.045</td><td>0.753±0.112</td><td>6.15±1.82</td><td><strong>45.32±5.25</strong></td></tr>
+              <tr><td>Standard CP</td><td>86.81%</td><td>68.21±5.95</td><td>65±6</td><td><strong>0.365±0.062</strong></td><td><strong>0.900±0.118</strong></td><td><strong>1.23±0.48</strong></td><td>49.50±5.68</td></tr>
+              <tr><td><strong>Learnable CP</strong></td><td><strong>90.37%</strong></td><td>64.87±5.52</td><td>60±6</td><td>0.308±0.055</td><td>0.815±0.108</td><td>2.45±0.88</td><td>47.08±5.42</td></tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <h3 class="title is-4" style="margin-top: 30px;">Table II: Object Detection Uncertainty Quantification</h3>
+        <div style="overflow-x: auto;">
+          <table class="table is-bordered is-striped" style="font-size: 0.9em;">
+            <thead>
+              <tr>
+                <th rowspan="2">Base Model</th>
+                <th rowspan="2">Method</th>
+                <th colspan="2">COCO</th>
+                <th colspan="2">BDD100K</th>
+                <th colspan="2">Cityscapes</th>
+              </tr>
+              <tr>
+                <th>Coverage</th>
+                <th>MPIW</th>
+                <th>Coverage</th>
+                <th>MPIW</th>
+                <th>Coverage</th>
+                <th>MPIW</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td rowspan="4">ResNeXt-101-FPN</td><td>Standard CP</td><td>0.900±0.013</td><td>90.6±9.3</td><td>0.919±0.009</td><td>59.8±3.3</td><td>0.912±0.029</td><td>100.0±20.3</td></tr>
+              <tr><td>Ensemble</td><td>0.927±0.005</td><td>109.7±3.7</td><td>0.900±0.037</td><td>80.4±7.1</td><td>0.906±0.037</td><td>127.6±16.1</td></tr>
+              <tr><td>CQR</td><td>0.891±0.010</td><td>87.7±13.6</td><td>0.910±0.006</td><td>71.0±4.4</td><td>0.908±0.063</td><td>110.0±25.9</td></tr>
+              <tr><td><strong>Learnable (Ours)</strong></td><td><strong>0.902±0.020</strong></td><td><strong>41.9±1.8</strong></td><td><strong>0.896±0.019</strong></td><td><strong>28.8±1.2</strong></td><td><strong>0.887±0.021</strong></td><td><strong>53.8±2.1</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Object Detection Visualization -->
+    <div class="columns is-centered" style="margin-top: 40px;">
+      <div class="column is-full-width">
+        <h3 class="title is-4">Object Detection with Uncertainty Bounds</h3>
+        <div class="content has-text-centered">
+          <div class="box" style="background-color: #f5f5f5; padding: 20px;">
+            <p><strong>Figure 3: Object Detection with Uncertainty Bounds</strong></p>
+            <p>Comparison of conformal prediction intervals across different methods:</p>
+            <ul style="text-align: left; display: inline-block;">
+              <li><strong>Standard CP:</strong> Fixed, uniform margins around objects</li>
+              <li><strong>Ensemble:</strong> Often over-inflated, doubling box area</li>
+              <li><strong>CQR:</strong> Irregular, geometrically implausible shapes</li>
+              <li><strong>Learnable CP (Ours):</strong> Tight, adaptive intervals that scale with object size and difficulty</li>
+            </ul>
+            <p>Tested on three datasets: COCO, BDD100K, and Cityscapes</p>
+            <p style="color: #666;"><em>Red boxes: ground truth | Green boxes: predictions with uncertainty bounds</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Results Summary -->
+    <div class="columns is-centered" style="margin-top: 40px;">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Key Performance Metrics</h2>
         <div class="content has-text-justified">
           <ul>
             <li><strong>Path Planning:</strong> 91.5% navigation success rate with only 4.5% path inflation (vs. 87.8% success and 12.2% inflation for Standard CP)</li>
@@ -218,8 +313,21 @@
       </div>
     </div>
 
-
-    <!-- Removed related work section -->
+    <!-- Demo video moved to end -->
+    <div class="columns is-centered has-text-centered" id="demo-video" style="margin-top: 40px;">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Demo Video</h2>
+        <div class="publication-video">
+          <video controls playsinline style="width: 100%;">
+            <source src="./static/videos/demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p class="has-text-centered" style="margin-top: 10px;">
+            Real-time demonstration of Learnable Conformal Prediction on Intel NUC edge hardware with Agilex MiniScout robot
+          </p>
+        </div>
+      </div>
+    </div>
 
   </div>
 </section>
