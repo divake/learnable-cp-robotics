@@ -191,41 +191,41 @@
       <div class="column is-full-width">
         <h2 class="title is-3">Path Planning Visualization</h2>
         <div class="content has-text-centered">
-          <img src="./static/images/figures/Vision_2.jpg" style="width: 100%; max-width: 800px;" alt="Path Planning Visualization">
+          <img src="./static/images/figures/Vision_2.jpg" style="width: 80%; max-width: 640px;" alt="Path Planning Visualization">
           <p><strong>Figure 1:</strong> Real-time conformal prediction for safe and efficient robotics. Left: Framework on Intel NUC mounted on Agilex MiniScout. Center: Conformal path planning with RRT. Right: Improved object detection and classification.</p>
         </div>
         
         <h3 class="title is-4" style="margin-top: 30px;">Path Planning Comparison</h3>
-        <div class="columns is-multiline">
+        <div class="columns is-multiline" style="margin: 0 auto; max-width: 900px;">
           <div class="column is-half">
-            <p style="text-align: center; font-weight: bold;">Office02 Environment</p>
+            <p style="text-align: center; font-weight: bold; font-size: 0.9em;">Office02 Environment</p>
           </div>
           <div class="column is-half">
-            <p style="text-align: center; font-weight: bold;">Shopping Mall Environment</p>
+            <p style="text-align: center; font-weight: bold; font-size: 0.9em;">Shopping Mall Environment</p>
           </div>
           <div class="column is-half">
             <img src="./static/images/figures/naive_office02.png" style="width: 100%;" alt="Naive Office02">
-            <p style="text-align: center; font-size: 0.9em;">Naive Path Planning</p>
+            <p style="text-align: center; font-size: 0.85em;">Naive Path Planning</p>
           </div>
           <div class="column is-half">
             <img src="./static/images/figures/naive_shopping_mall.png" style="width: 100%;" alt="Naive Shopping Mall">
-            <p style="text-align: center; font-size: 0.9em;">Naive Path Planning</p>
+            <p style="text-align: center; font-size: 0.85em;">Naive Path Planning</p>
           </div>
           <div class="column is-half">
             <img src="./static/images/figures/standard_cp_office02.png" style="width: 100%;" alt="Standard CP Office02">
-            <p style="text-align: center; font-size: 0.9em;">Standard CP (Fixed Margins)</p>
+            <p style="text-align: center; font-size: 0.85em;">Standard CP (Fixed Margins)</p>
           </div>
           <div class="column is-half">
             <img src="./static/images/figures/standard_cp_shopping_mall.png" style="width: 100%;" alt="Standard CP Shopping Mall">
-            <p style="text-align: center; font-size: 0.9em;">Standard CP (Fixed Margins)</p>
+            <p style="text-align: center; font-size: 0.85em;">Standard CP (Fixed Margins)</p>
           </div>
           <div class="column is-half">
             <img src="./static/images/figures/learnable_cp_office02.png" style="width: 100%;" alt="Learnable CP Office02">
-            <p style="text-align: center; font-size: 0.9em;">Learnable CP (Adaptive Margins)</p>
+            <p style="text-align: center; font-size: 0.85em;">Learnable CP (Adaptive Margins)</p>
           </div>
           <div class="column is-half">
             <img src="./static/images/figures/learnable_cp_shopping_mall.png" style="width: 100%;" alt="Learnable CP Shopping Mall">
-            <p style="text-align: center; font-size: 0.9em;">Learnable CP (Adaptive Margins)</p>
+            <p style="text-align: center; font-size: 0.85em;">Learnable CP (Adaptive Margins)</p>
           </div>
         </div>
         <p><strong>Figure 2:</strong> Path planning benchmarks on MRPB. Rows: Naive, Standard CP, Learnable CP. Columns: Office02, Shopping Mall environments. Learnable CP adapts margins based on context.</p>
@@ -256,9 +256,18 @@
               <tr><td rowspan="3"><strong>office01add</strong></td><td>Naive</td><td>81.62%</td><td><strong>21.92±2.15</strong></td><td><strong>35±3</strong></td><td>0.212±0.048</td><td>0.637±0.085</td><td>4.92±1.23</td><td><strong>18.54±2.35</strong></td></tr>
               <tr><td>Standard CP</td><td>89.24%</td><td>24.79±2.38</td><td>39±4</td><td><strong>0.342±0.051</strong></td><td><strong>0.817±0.092</strong></td><td><strong>1.48±0.52</strong></td><td>20.98±2.65</td></tr>
               <tr><td><strong>Learnable CP</strong></td><td><strong>92.78%</strong></td><td>22.82±2.21</td><td>36±4</td><td>0.285±0.045</td><td>0.711±0.088</td><td>2.56±0.78</td><td>19.31±2.42</td></tr>
+              <tr><td rowspan="3"><strong>office02</strong></td><td>Naive</td><td>77.18%</td><td><strong>48.35±4.62</strong></td><td><strong>85±8</strong></td><td>0.206±0.052</td><td>0.649±0.098</td><td>5.28±1.65</td><td><strong>42.65±4.85</strong></td></tr>
+              <tr><td>Standard CP</td><td>87.56%</td><td>51.28±4.85</td><td>89±9</td><td><strong>0.358±0.058</strong></td><td><strong>0.832±0.103</strong></td><td><strong>1.85±0.68</strong></td><td>45.23±5.12</td></tr>
+              <tr><td><strong>Learnable CP</strong></td><td><strong>91.23%</strong></td><td>49.15±4.71</td><td>86±8</td><td>0.294±0.052</td><td>0.744±0.095</td><td>2.93±0.95</td><td>43.35±4.95</td></tr>
               <tr><td rowspan="3"><strong>shopping_mall</strong></td><td>Naive</td><td>75.64%</td><td><strong>62.45±5.38</strong></td><td><strong>55±5</strong></td><td>0.185±0.045</td><td>0.753±0.112</td><td>6.15±1.82</td><td><strong>45.32±5.25</strong></td></tr>
               <tr><td>Standard CP</td><td>86.81%</td><td>68.21±5.95</td><td>65±6</td><td><strong>0.365±0.062</strong></td><td><strong>0.900±0.118</strong></td><td><strong>1.23±0.48</strong></td><td>49.50±5.68</td></tr>
               <tr><td><strong>Learnable CP</strong></td><td><strong>90.37%</strong></td><td>64.87±5.52</td><td>60±6</td><td>0.308±0.055</td><td>0.815±0.108</td><td>2.45±0.88</td><td>47.08±5.42</td></tr>
+              <tr><td rowspan="3"><strong>room02</strong></td><td>Naive</td><td>83.25%</td><td><strong>20.14±1.95</strong></td><td><strong>30±3</strong></td><td>0.233±0.055</td><td>0.741±0.089</td><td>3.85±1.15</td><td><strong>16.26±2.15</strong></td></tr>
+              <tr><td>Standard CP</td><td>90.43%</td><td>22.15±2.12</td><td>33±3</td><td><strong>0.378±0.055</strong></td><td><strong>0.921±0.098</strong></td><td><strong>0.78±0.32</strong></td><td>17.88±2.35</td></tr>
+              <tr><td><strong>Learnable CP</strong></td><td><strong>93.61%</strong></td><td>20.93±2.03</td><td>31±3</td><td>0.318±0.048</td><td>0.816±0.092</td><td>1.65±0.58</td><td>16.89±2.25</td></tr>
+              <tr><td rowspan="3"><strong>narrow_graph</strong></td><td>Naive</td><td>71.97%</td><td><strong>31.39±3.25</strong></td><td><strong>66±6</strong></td><td>0.215±0.051</td><td>0.441±0.078</td><td>7.61±2.12</td><td><strong>34.65±3.85</strong></td></tr>
+              <tr><td>Standard CP</td><td>85.18%</td><td>36.13±3.48</td><td>75±7</td><td><strong>0.335±0.061</strong></td><td><strong>0.621±0.085</strong></td><td><strong>3.03±1.02</strong></td><td>39.88±4.25</td></tr>
+              <tr><td><strong>Learnable CP</strong></td><td><strong>89.59%</strong></td><td>33.68±3.31</td><td>69±7</td><td>0.274±0.051</td><td>0.525±0.081</td><td>4.64±1.38</td><td>37.18±4.05</td></tr>
             </tbody>
           </table>
         </div>
@@ -288,6 +297,14 @@
               <tr><td>Ensemble</td><td>0.927±0.005</td><td>109.7±3.7</td><td>0.900±0.037</td><td>80.4±7.1</td><td>0.906±0.037</td><td>127.6±16.1</td></tr>
               <tr><td>CQR</td><td>0.891±0.010</td><td>87.7±13.6</td><td>0.910±0.006</td><td>71.0±4.4</td><td>0.908±0.063</td><td>110.0±25.9</td></tr>
               <tr><td><strong>Learnable (Ours)</strong></td><td><strong>0.902±0.020</strong></td><td><strong>41.9±1.8</strong></td><td><strong>0.896±0.019</strong></td><td><strong>28.8±1.2</strong></td><td><strong>0.887±0.021</strong></td><td><strong>53.8±2.1</strong></td></tr>
+              <tr><td rowspan="2">Cascade R-CNN</td><td>Standard CP</td><td>0.927±0.008</td><td>109.0±9.6</td><td>0.912±0.025</td><td>54.3±2.3</td><td>0.924±0.065</td><td>96.6±12.3</td></tr>
+              <tr><td><strong>Learnable (Ours)</strong></td><td><strong>0.898±0.018</strong></td><td><strong>37.3±1.5</strong></td><td><strong>0.892±0.017</strong></td><td><strong>27.5±1.1</strong></td><td><strong>0.903±0.019</strong></td><td><strong>51.2±2.0</strong></td></tr>
+              <tr><td rowspan="2">ResNet-50-FPN</td><td>Standard CP</td><td>0.900±0.011</td><td>105.9±11.3</td><td>0.901±0.013</td><td>58.7±3.6</td><td>0.900±0.022</td><td>95.5±18.7</td></tr>
+              <tr><td><strong>Learnable (Ours)</strong></td><td><strong>0.891±0.020</strong></td><td><strong>46.4±1.6</strong></td><td><strong>0.885±0.018</strong></td><td><strong>29.1±1.3</strong></td><td><strong>0.896±0.022</strong></td><td><strong>57.9±2.2</strong></td></tr>
+              <tr><td rowspan="2">ResNet-50-C4</td><td>Standard CP</td><td>0.939±0.016</td><td>120.7±10.6</td><td>0.910±0.048</td><td>62.8±4.6</td><td>0.910±0.038</td><td>128.3±35.0</td></tr>
+              <tr><td><strong>Learnable (Ours)</strong></td><td><strong>0.905±0.021</strong></td><td><strong>51.2±1.9</strong></td><td><strong>0.900±0.019</strong></td><td><strong>32.2±1.4</strong></td><td><strong>0.910±0.023</strong></td><td><strong>62.4±2.4</strong></td></tr>
+              <tr><td rowspan="2">ResNeXt-INT8</td><td>Standard CP</td><td>0.885±0.015</td><td>95.2±10.8</td><td>0.895±0.020</td><td>65.5±5.2</td><td>0.900±0.025</td><td>115.8±22.1</td></tr>
+              <tr><td><strong>Learnable (Ours)</strong></td><td><strong>0.894±0.019</strong></td><td><strong>55.8±2.1</strong></td><td><strong>0.888±0.018</strong></td><td><strong>35.7±1.5</strong></td><td><strong>0.899±0.020</strong></td><td><strong>66.7±2.6</strong></td></tr>
             </tbody>
           </table>
         </div>
@@ -299,7 +316,7 @@
       <div class="column is-full-width">
         <h3 class="title is-4">Object Detection with Uncertainty Bounds</h3>
         <div class="content has-text-centered">
-          <img src="./static/images/figures/Reg_bounding_box.png" style="width: 100%; max-width: 1000px;" alt="Bounding Box Comparisons">
+          <img src="./static/images/figures/Reg_bounding_box.png" style="width: 85%; max-width: 850px;" alt="Bounding Box Comparisons">
           <p style="margin-top: 10px;"><strong>Figure 3:</strong> Conformal prediction intervals across methods and datasets. Rows: COCO, BDD100K, Cityscapes. Columns: Standard, Ensemble, CQR, and Learnable CP. Red boxes show ground truth, green boxes show predictions with uncertainty bounds. Our Learnable CP provides tighter, more adaptive intervals.</p>
         </div>
       </div>
